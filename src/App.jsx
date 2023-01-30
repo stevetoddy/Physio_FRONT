@@ -7,6 +7,7 @@ import Programs from './components/Programs'
 import UserPrograms from './components/UserPrograms'
 import Login from './components/Login'
 import jwt_decode from 'jwt-decode'
+import BadLogin from './components/BadLogin'
 
 
 function App() {
@@ -67,7 +68,7 @@ function App() {
     nav(`/`)
     
     } catch (err) {
-        res.status(500).send({error: error.message})
+        nav('/badDetails')
     }}
 
     return (
@@ -76,14 +77,12 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/users' element={<Users users={users} />} />
                 <Route path='/programs' element={<Programs />} />
-                <Route path='/steve/program' element={<UserPrograms userId={"63d706a22dc46e7bdc94f7d8"}/>} />
-                <Route path='/oli/program' element={<UserPrograms userId={"63d5f33acb4ee08c5887fe80"}/>} />
-                <Route path='/kane/program' element={<UserPrograms userId={"63d5f33acb4ee08c5887fe81"}/>} />
+                <Route path='/user/program' element={<UserPrograms />} />
                 <Route path='/login' element={<Login loginDetails={loginDetails} />} />
+                <Route path='/badDetails' element={<BadLogin />} />
                 <Route path='*' element={<h4>Page not found!</h4>} />
             </Routes>
         </>
-
     )
 }
 
