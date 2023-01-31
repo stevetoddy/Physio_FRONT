@@ -1,13 +1,16 @@
+
 import { useState, useEffect } from 'react'
 import './App.css'
 import { Routes, Route, useParams, useNavigate } from 'react-router-dom'
 import Users from './components/Users'
-import Home from './components/Home'
-import Programs from './components/Programs'
+import HomePage from './components/HomePage'
+import Programs from './components/UserPrograms'
 import UserPrograms from './components/UserPrograms'
+// import Landing from './components/Landing'
 import Login from './components/Login'
 import jwt_decode from 'jwt-decode'
 import BadLogin from './components/BadLogin'
+import SignUp from './components/SignUp'
 
 
 function App() {
@@ -61,12 +64,12 @@ function App() {
         localStorage.clear()
 
         const data = await userLogin.json()
-
+        console.log(data)
         sessionStorage.setItem('token', JSON.stringify(data))
         const info = jwt_decode(sessionStorage.token)
         sessionStorage.clear()
         sessionStorage.setItem('id', JSON.stringify(info.comparedUser[0]._id))
-        nav(`/`)
+        nav(`/home`)
 
     } catch (err) {
         nav('/badDetails')
@@ -77,11 +80,13 @@ function App() {
     return (
         <>
             <Routes>
-                <Route path='/' element={<Home />} />
+                {/* <Route path='/' element={<Landing />} /> */}
+                <Route path='/home' element={<HomePage />} />
                 <Route path='/users' element={<Users />} />
                 <Route path='/programs' element={<Programs />} />
-                <Route path='/user/program' element={<UserPrograms id={id} programs={programs} />} />
+                <Route path='/user/program' element={<UserPrograms id={id} />} />
                 <Route path='/login' element={<Login loginDetails={loginDetails} />} />
+                <Route path='/signup' element={<SignUp />} />
                 <Route path='/badDetails' element={<BadLogin />} />
                 <Route path='*' element={<h4>Page not found!</h4>} />
             </Routes>
@@ -90,3 +95,4 @@ function App() {
 }
 
 export default App
+

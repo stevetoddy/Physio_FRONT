@@ -14,7 +14,7 @@ const Login = ({ loginDetails }) => {
 
         setData({...data, [e.target.name]:[e.target.value]});
         }  
-    console.log("HERE:",data)
+        
     const submitHandler = e => {
         e.preventDefault();
         loginDetails(data.email[0], data.password[0])
