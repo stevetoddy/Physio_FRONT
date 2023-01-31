@@ -37,47 +37,50 @@ function App() {
         fetchPrograms()
     }, [])
 
+   
+
 
     // POST Login Details
     const loginDetails = async (email, password) => {
 
-  try {      
-    const newLogin = {
-        email : email,
-        password: password
-    }
+    try {      
+        const newLogin = {
+            email : email,
+            password: password
+        }
 
-    const userLogin = await fetch('http://localhost:4001/auth/login', {
-        method: 'POST',
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newLogin)
-    })
+        const userLogin = await fetch('http://localhost:4001/auth/login', {
+            method: 'POST',
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newLogin)
+        })
 
-    localStorage.clear()
+        localStorage.clear()
 
-    const data = await userLogin.json()
+        const data = await userLogin.json()
 
-    sessionStorage.setItem('token', JSON.stringify(data))
-    const info = jwt_decode(sessionStorage.token)
-    sessionStorage.clear()
-    sessionStorage.setItem('id', JSON.stringify(info.comparedUser[0]._id))
+        sessionStorage.setItem('token', JSON.stringify(data))
+        const info = jwt_decode(sessionStorage.token)
+        sessionStorage.clear()
+        sessionStorage.setItem('id', JSON.stringify(info.comparedUser[0]._id))
+        nav(`/`)
 
-    nav(`/`)
-    
     } catch (err) {
         nav('/badDetails')
     }}
+
+    const id = sessionStorage.id
 
     return (
         <>
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/users' element={<Users users={users} />} />
+                <Route path='/users' element={<Users />} />
                 <Route path='/programs' element={<Programs />} />
-                <Route path='/user/program' element={<UserPrograms />} />
+                <Route path='/user/program' element={<UserPrograms id={id} programs={programs} />} />
                 <Route path='/login' element={<Login loginDetails={loginDetails} />} />
                 <Route path='/badDetails' element={<BadLogin />} />
                 <Route path='*' element={<h4>Page not found!</h4>} />
