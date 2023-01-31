@@ -4,11 +4,12 @@ import './App.css'
 import { Routes, Route, useParams, useNavigate } from 'react-router-dom'
 import Users from './components/Users'
 import HomePage from './components/HomePage'
-import Programs from './components/UserPrograms'
+import ProgramList from './components/ProgramList'
 import UserPrograms from './components/UserPrograms'
 // import Landing from './components/Landing'
 import Login from './components/Login'
 import Chart from './components/Chart'
+import BuildProgram from './components/BuildProgram'
 import jwt_decode from 'jwt-decode'
 import BadLogin from './components/BadLogin'
 import SignUp from './components/SignUp'
@@ -84,8 +85,9 @@ function App() {
                 {/* <Route path='/' element={<Landing />} /> */}
                 <Route path='/home' element={<HomePage />} />
                 <Route path='/users' element={<Users />} />
-                <Route path='/programs' element={<Programs />} />
+                <Route path='/programs' element={<ProgramList id={id}/>} />
                 <Route path='/user/program' element={<UserPrograms id={id} />} />
+                <Route path='/buildprogram' element={<BuildProgram id={id} />} />
                 <Route path='/login' element={<Login loginDetails={loginDetails} />} />
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/badDetails' element={<BadLogin />} />
