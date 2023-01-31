@@ -43,16 +43,18 @@ function Chart() {
         backgroundColor: 'red',
         borderColor: 'black',
         pointBorderColor: 'black',
-        tension: 0.4
+        tension: 0.4,
+        yAxisID: 'y'
       },
       {
-        label: 'Completion',
+        label: 'Completion (%)',
         // Completion
-        data: [2, 3.5, 5],
+        data: [60, 40, 20],
         backgroundColor: 'yellow',
         borderColor: 'black',
         pointBorderColor: 'black',
-        tension: 0.4
+        tension: 0.4,
+        yAxisID: 'percentage'
       }
     ]
   }
@@ -65,8 +67,17 @@ function Chart() {
     scales: {
       y: {
         min: 0, 
-        max: 10
+        max: 10,
+        position: 'left'
       },
+      percentage: {
+        position: 'right',
+        beginAtZero: true,
+        max: 100,
+        ticks: {
+          color: 'yellow'
+        }
+      }
   }
   }
   return (
