@@ -8,6 +8,8 @@ import UserPrograms from './components/UserPrograms'
 import Login from './components/Login'
 import jwt_decode from 'jwt-decode'
 import BadLogin from './components/BadLogin'
+import SignUp from './components/SignUp'
+import Progress from './components/Progress'
 
 
 function App() {
@@ -77,9 +79,11 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/users' element={<Users users={users} />} />
                 <Route path='/programs' element={<Programs />} />
-                <Route path='/user/program' element={<UserPrograms />} />
+                <Route path='/signup' element={<SignUp />} />
+                <Route path='/users/program' element={<UserPrograms />} />
                 <Route path='/login' element={<Login loginDetails={loginDetails} />} />
                 <Route path='/badDetails' element={<BadLogin />} />
+                <Route path='/users/progress' element={<Progress programs={programs} />} />
                 <Route path='*' element={<h4>Page not found!</h4>} />
             </Routes>
         </>

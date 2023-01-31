@@ -1,0 +1,93 @@
+import React from 'react'
+import { Line } from 'react-chartjs-2'
+
+import {
+  Chart as ChartJS,
+  LineElement,
+  CategoryScale, // x axis
+  LinearScale, // y axis
+  PointElement,
+  Legend,
+  Tooltip
+} from 'chart.js'
+
+ChartJS.register(
+  LineElement,
+  CategoryScale, // x axis
+  LinearScale, // y axis
+  PointElement,
+  Legend,
+  Tooltip
+)
+
+// Now I need to start using props to get this dynamic!
+function Chart() {
+  const data = {
+    // Dates
+    
+    labels: ['19/04/22', '22/04/22', '24/04/22'],
+    datasets: [
+      {
+        label: 'Difficulty',
+        // Difficulty
+        data: [6, 3, 9],
+        backgroundColor: 'aqua',
+        borderColor: 'black',
+        pointBorderColor: 'black',
+        tension: 0.4
+      },
+      {
+        label: 'Pain',
+        // Pain
+        data: [9, 5, 2],
+        backgroundColor: 'red',
+        borderColor: 'black',
+        pointBorderColor: 'black',
+        tension: 0.4
+      },
+      {
+        label: 'Completion',
+        // Completion
+        data: [2, 3.5, 5],
+        backgroundColor: 'yellow',
+        borderColor: 'black',
+        pointBorderColor: 'black',
+        tension: 0.4
+      }
+    ]
+  }
+
+  const options = {
+    type: 'line',
+    plugins: {
+      legend: true,
+    },
+    scales: {
+      y: {
+        min: 0, 
+        max: 10
+      },
+  }
+  }
+  return (
+    <div className="App">
+      {/* Program Name */}
+      <h1></h1>
+      <div style={
+          {
+          width: '600px',
+          height: '300px',
+          padding: '20px',
+          backgroundColor: 'grey'
+          }
+        }>
+        <Line
+          data = {data}
+          options = {options}
+        ></Line>
+      </div>
+    </div>
+  )
+}
+
+export default Chart
