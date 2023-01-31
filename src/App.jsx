@@ -8,6 +8,7 @@ import Programs from './components/UserPrograms'
 import UserPrograms from './components/UserPrograms'
 // import Landing from './components/Landing'
 import Login from './components/Login'
+import Chart from './components/Chart'
 import jwt_decode from 'jwt-decode'
 import BadLogin from './components/BadLogin'
 import SignUp from './components/SignUp'
@@ -88,6 +89,7 @@ function App() {
                 <Route path='/login' element={<Login loginDetails={loginDetails} />} />
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/badDetails' element={<BadLogin />} />
+                <Route path='/chart' element={<Chart />} />
                 <Route path='*' element={<h4>Page not found!</h4>} />
             </Routes>
         </>
