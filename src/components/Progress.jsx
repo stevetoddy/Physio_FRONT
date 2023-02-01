@@ -2,20 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Chart from './Chart'
 
 // Props
-const Progress = ({ id }) => {
-
-  const [userPrograms, setUserPrograms] = useState([])
-    
-    
-  useEffect(() => {
-  async function fetchUserPrograms() {
-      const res = await fetch(`http://localhost:4001/programs/users/${sessionStorage.id}`)
-      const data = await res.json()
-      setUserPrograms(data)
-      console.log(data)
-  }
-  fetchUserPrograms()
-  }, [])
+const Progress = ({ userPrograms }) => {
 
   return (
     <>

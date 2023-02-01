@@ -5,12 +5,15 @@ import { Routes, Route, useParams, useNavigate } from 'react-router-dom'
 import Users from './components/Users'
 import HomePage from './components/HomePage'
 import Programs from './components/UserPrograms'
+import Progress from './components/Progress'
 import UserPrograms from './components/UserPrograms'
 import Login from './components/Login'
 import Chart from './components/Chart'
 import jwt_decode from 'jwt-decode'
 import BadLogin from './components/BadLogin'
 import SignUp from './components/SignUp'
+import CreateProgramName from './components/CreateProgramName'
+import CreateProgramBody from './components/CreateProgramBody'
 
 
 function App() {
@@ -70,7 +73,7 @@ function App() {
         const info = jwt_decode(sessionStorage.token)
         sessionStorage.clear()
         sessionStorage.setItem('id', JSON.stringify(info.comparedUser[0]._id))
-        nav(`/home`)
+        nav(`/`)
 
     } catch (err) {
         nav('/badDetails')
@@ -79,6 +82,7 @@ function App() {
 
     // Logged In Users Id
     const id = sessionStorage.id
+    const programId = sessionStorage.programId
 
 
     // GET Logged In Users Programs 
@@ -94,11 +98,73 @@ function App() {
     fetchUserPrograms()
     }, [])
     
+         
+        
+    const [programName, setProgramName] = useState([]);
+
+    // POST New Program Name
+    const newProgramName = async (name, userID) => {
+
+        try {      
+            const newPName = {
+                name: name,
+                userID: userID
+            }
+    
+            const newName = await fetch('http://localhost:4001/programs/', {
+                method: 'POST',
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newPName)
+            })
+    
+            const data = await newName.json()
+
+            sessionStorage.setItem('ProgramId', JSON.stringify(data._id))
+            nav('/createbody') 
+    
+        } catch (err) {
+            <h2>{err.message}</h2>
+        }}
+
+
+    // PUT New Exercises
+    const addExercise = async (name, info) => {
+
+        try {      
+            const exercise = {
+                name: name,
+                image: "Temp Image",
+                info: info
+            }
+    
+            const newExercise = await fetch(`http://localhost:4001/programs/exercise/${programId.substring(1, 25)}`, {
+                method: 'PUT',
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(exercise)
+            })
+    
+            const data = await newExercise.json()
+
+            
+            console.log(data)
+            nav('/user/programs') 
+    
+        } catch (err) {
+            <h2>{err.message}</h2>
+        }} 
+
+
 
     return (
         <>
             <Routes>
-                <Route path='/home' element={<HomePage />} />
+                <Route path='/' element={<HomePage />} />
                 <Route path='/users' element={<Users />} />
                 <Route path='/programs' element={<Programs />} />
                 <Route path='/user/program' element={<UserPrograms userPrograms={userPrograms} />} />
@@ -106,6 +172,9 @@ function App() {
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/badDetails' element={<BadLogin />} />
                 <Route path='/chart' element={<Chart />} />
+                <Route path='/progress' element={<Progress userPrograms={userPrograms} />} />
+                <Route path='/createname' element={<CreateProgramName newProgramName={newProgramName} programName={programName} setProgramName={setProgramName} />} />
+                <Route path='/createbody' element={<CreateProgramBody addExercise={addExercise} programName={programName} />} />
                 <Route path='*' element={<h4>Page not found!</h4>} />
             </Routes>
         </>
