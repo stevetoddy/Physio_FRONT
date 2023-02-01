@@ -2,22 +2,8 @@ import { React, useState, useEffect } from 'react'
 import NewCard from './Card'
 
 
-const UserPrograms = ({ id }) => {
+const UserPrograms = ({ userPrograms }) => {
     
-    // Get LOGGED IN USERS PROGRAMS 
-    const [userPrograms, setUserPrograms] = useState([])
-       
-
-    useEffect(() => {
-    async function fetchUserPrograms() {
-        let userId = `http://localhost:4001/programs/users/${id.substring(1, 25)}/`
-        const res = await fetch(userId)
-        const data = await res.json()
-        setUserPrograms(data)
-    }
-    fetchUserPrograms()
-    }, [])
-
     return (
         <>
         <br />
@@ -30,7 +16,8 @@ const UserPrograms = ({ id }) => {
                         </div>
                     ))}
                 </div>                
-            ))} 
+            ))}
+            {userPrograms <= 0 ? <h4>No Exercises Found!</h4> : '' } 
         </>
     )
 }
