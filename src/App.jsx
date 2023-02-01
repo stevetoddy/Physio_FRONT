@@ -8,11 +8,9 @@ import Programs from './components/UserPrograms'
 import Progress from './components/Progress'
 import UserPrograms from './components/UserPrograms'
 import Login from './components/Login'
-import Chart from './components/Chart'
 import jwt_decode from 'jwt-decode'
 import BadLogin from './components/BadLogin'
 import SignUp from './components/SignUp'
-import Progress from './components/Progress'
 import CreateProgramName from './components/CreateProgramName'
 import CreateProgramBody from './components/CreateProgramBody'
 
@@ -83,7 +81,7 @@ function App() {
 
     // Logged In Users Id
     const id = sessionStorage.id
-    const programId = sessionStorage.programId
+    const programId = sessionStorage.ProgramId
 
 
     // GET Logged In Users Programs 
@@ -136,11 +134,16 @@ function App() {
 
         try {      
             const exercise = {
-                name: name,
-                image: "Temp Image",
-                info: info
-            }
-    
+                exercises: {
+                    name: name,
+                    image: "Temp Image",
+                    info: info
+                    }
+                }
+
+            console.log("ONE", exercise)
+            console.log("HERE", programId.substring(1, 25))
+
             const newExercise = await fetch(`http://localhost:4001/programs/exercise/${programId.substring(1, 25)}`, {
                 method: 'PUT',
                 headers: {
@@ -167,7 +170,6 @@ function App() {
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/users' element={<Users />} />
-                <Route path='/programs' element={<Programs />} />
                 <Route path='/user/program' element={<UserPrograms userPrograms={userPrograms} />} />
                 <Route path='/login' element={<Login loginDetails={loginDetails} />} />
                 <Route path='/signup' element={<SignUp />} />
