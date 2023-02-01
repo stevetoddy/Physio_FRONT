@@ -21,7 +21,11 @@ ChartJS.register(
 )
 
 // Now I need to start using props to get this dynamic!
-function Chart() {
+function Chart( {metrics} ) {
+  // Iterate functions over date/completion/diff/pain
+  console.log(metrics)
+  // const dates = metrics.map(object => object.date)
+  // console.log(dates)
   const data = {
     // Dates
     
@@ -82,8 +86,6 @@ function Chart() {
   }
   return (
     <div className="App">
-      {/* Program Name */}
-      <h1></h1>
       <div style={
           {
           width: '600px',
