@@ -20,7 +20,7 @@ const SignUp = () => {
 
     const data = await res.json()
     
-    navigate('/auth/login')
+    navigate('/login')
     
   }
 
