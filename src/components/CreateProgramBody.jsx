@@ -1,6 +1,6 @@
 import { React, useState } from 'react'
 
-const CreateProgramBody = ({ addExercise, programName }) => {
+const CreateProgramBody = ({ addExercise, programName, fetchOneProgram, oneProgram }) => {
     
     const [exerciseName, setExerciseName] = useState([]);
     const [exerciseInfo, setExerciseInfo] = useState([]);
@@ -10,6 +10,7 @@ const CreateProgramBody = ({ addExercise, programName }) => {
         e.preventDefault();
         console.log("here", exerciseName, exerciseInfo)
         addExercise(exerciseName, exerciseInfo)
+        fetchOneProgram()
     }
 
     return (
@@ -39,6 +40,20 @@ const CreateProgramBody = ({ addExercise, programName }) => {
                     <input type="submit" name="submit" className="btn btn-primary" />
             </form>
 
+        <>
+            <br />
+            {oneProgram.map((program, index) => (
+                <div key={index}>
+                    <h2>{program.name}</h2>
+                    {program.exercises.map((exercise, index) => (
+                        <div key={index}>
+                            <NewCard image={exercise.image} exerciseName={exercise.name} info={exercise.info} />
+                        </div>
+                    ))}
+                </div>                
+            ))}
+            {oneProgram <= 0 ? <h4>No Exercises Found!</h4> : '' } 
+        </>
         </>
     )
 }

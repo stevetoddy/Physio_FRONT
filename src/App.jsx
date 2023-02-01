@@ -18,33 +18,6 @@ import CreateProgramBody from './components/CreateProgramBody'
 function App() {
    
     const nav = useNavigate()
-
-
-    // TEMP Route getting all Users
-    const [users, setUsers] = useState([])
-
-    useEffect(() => {
-        async function fetchUsers() {
-            const res = await fetch('http://localhost:4001/users')
-            const data = await res.json()
-            setUsers(data)
-        }
-        fetchUsers()
-    }, [])
-
-
-    // TEMP Route getting all Programs
-    const [programs, setPrograms] = useState([])
-
-    useEffect(() => {
-        async function fetchPrograms() {
-            const res = await fetch(`http://localhost:4001/programs/`)
-            const data = await res.json()
-            setPrograms(data)
-        }
-        fetchPrograms()
-    }, [])
-
    
     // POST Login Details
     const loginDetails = async (email, password) => {
@@ -157,11 +130,25 @@ function App() {
 
             
             console.log(data)
-            nav('/user/programs') 
     
         } catch (err) {
             <h2>{err.message}</h2>
         }} 
+
+
+        // GET One Program by ID 
+       
+        const [oneProgram, setOneProgram] = useState([]);
+
+
+
+        async function fetchOneProgram() {
+            let userId = `http://localhost:4001/programs/${ProgramId.substring(1, 25)}/`
+            const res = await fetch(userId)
+            const data = await res.json()
+            setOneProgram(data)
+            console.log(oneProgram)
+        }
 
 
 
@@ -177,7 +164,7 @@ function App() {
                 <Route path='/chart' element={<Progress id={id}/>} />
                 <Route path='/progress' element={<Progress userPrograms={userPrograms} />} />
                 <Route path='/createname' element={<CreateProgramName newProgramName={newProgramName} programName={programName} setProgramName={setProgramName} />} />
-                <Route path='/createbody' element={<CreateProgramBody addExercise={addExercise} programName={programName} />} />
+                <Route path='/createbody' element={<CreateProgramBody addExercise={addExercise} programName={programName} fetchOneProgram={fetchOneProgram} oneProgram={oneProgram} />} />
                 <Route path='*' element={<h4>Page not found!</h4>} />
             </Routes>
         </>
