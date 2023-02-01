@@ -15,6 +15,9 @@ const UserPrograms = ({ userPrograms }) => {
                             <NewCard image={exercise.image} exerciseName={exercise.name} info={exercise.info} />
                         </div>
                     ))}
+                    <form>
+                        <input type="submit" value="Submit"/>
+                    </form>
                 </div>                
             ))}
             {userPrograms <= 0 ? <h4>No Exercises Found!</h4> : '' } 
