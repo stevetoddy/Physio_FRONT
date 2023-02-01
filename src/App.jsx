@@ -11,6 +11,7 @@ import Chart from './components/Chart'
 import jwt_decode from 'jwt-decode'
 import BadLogin from './components/BadLogin'
 import SignUp from './components/SignUp'
+import Progress from './components/Progress'
 
 
 function App() {
@@ -105,7 +106,7 @@ function App() {
                 <Route path='/login' element={<Login loginDetails={loginDetails} />} />
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/badDetails' element={<BadLogin />} />
-                <Route path='/chart' element={<Chart />} />
+                <Route path='/chart' element={<Progress id={id}/>} />
                 <Route path='*' element={<h4>Page not found!</h4>} />
             </Routes>
         </>

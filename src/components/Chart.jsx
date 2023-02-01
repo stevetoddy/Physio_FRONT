@@ -20,17 +20,22 @@ ChartJS.register(
   Tooltip
 )
 
-// Now I need to start using props to get this dynamic!
-function Chart() {
+function Chart( {metrics} ) {
+
+  const dates = metrics.map(metric => metric.date)
+  const diff = metrics.map(metric => metric.diff)
+  const completion = metrics.map(metric => metric.complete * 100)
+  const pain = metrics.map(metric => metric.pain)
+
   const data = {
     // Dates
     
-    labels: ['19/04/22', '22/04/22', '24/04/22'],
+    labels: dates,
     datasets: [
       {
         label: 'Difficulty',
         // Difficulty
-        data: [6, 3, 9],
+        data: diff,
         backgroundColor: 'aqua',
         borderColor: 'black',
         pointBorderColor: 'black',
@@ -39,7 +44,7 @@ function Chart() {
       {
         label: 'Pain',
         // Pain
-        data: [9, 5, 2],
+        data: pain,
         backgroundColor: 'red',
         borderColor: 'black',
         pointBorderColor: 'black',
@@ -49,7 +54,7 @@ function Chart() {
       {
         label: 'Completion (%)',
         // Completion
-        data: [60, 40, 20],
+        data: completion,
         backgroundColor: 'yellow',
         borderColor: 'black',
         pointBorderColor: 'black',
@@ -82,8 +87,6 @@ function Chart() {
   }
   return (
     <div className="App">
-      {/* Program Name */}
-      <h1></h1>
       <div style={
           {
           width: '600px',
