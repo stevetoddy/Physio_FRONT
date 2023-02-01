@@ -16,14 +16,10 @@ const Progress = ({ id }) => {
     }
     fetchUserPrograms()
     }, [])
-  console.log(userPrograms)
 
   return (
     <>
       <h2>Progress</h2>
-      {/* {data.map((item, index) => (
-        <Chart key={index} data={item} />
-      ))} */}
       <div>
       {userPrograms.map((program, index) => (
                 <div key={index}>
@@ -34,11 +30,6 @@ const Progress = ({ id }) => {
               )
         }
       </div>
-      <div>
-        <h3>Program 2</h3>
-        <Chart />
-      </div>
-      
     </>
     
   )
