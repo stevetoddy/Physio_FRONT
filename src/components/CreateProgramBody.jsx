@@ -1,15 +1,18 @@
 import { React, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const CreateProgramBody = ({ addExercise, programName }) => {
+const CreateProgramBody = ({ addExercise, programName, fetchOneProgram }) => {
     
+    const nav = useNavigate()
+
     const [exerciseName, setExerciseName] = useState([]);
     const [exerciseInfo, setExerciseInfo] = useState([]);
-                
         
     const submitHandler = e => {
         e.preventDefault();
-        console.log("here", exerciseName, exerciseInfo)
         addExercise(exerciseName, exerciseInfo)
+        fetchOneProgram()
+        nav("/updatedprogram")
     }
 
     return (
@@ -37,8 +40,9 @@ const CreateProgramBody = ({ addExercise, programName }) => {
                     onChange={(event) => setExerciseInfo(event.target.value)}
                 />
                     <input type="submit" name="submit" className="btn btn-primary" />
-            </form>
+                    {/* {oneProgram.length > 0 ? console.log("LOOK", oneProgram) : console.log("NOTHING")} */}
 
+            </form>
         </>
     )
 }

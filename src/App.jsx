@@ -4,7 +4,7 @@ import './App.css'
 import { Routes, Route, useParams, useNavigate } from 'react-router-dom'
 import Users from './components/Users'
 import HomePage from './components/HomePage'
-import Programs from './components/UserPrograms'
+import Programs from './components/Programs'
 import Progress from './components/Progress'
 import UserPrograms from './components/UserPrograms'
 import Login from './components/Login'
@@ -13,38 +13,11 @@ import BadLogin from './components/BadLogin'
 import SignUp from './components/SignUp'
 import CreateProgramName from './components/CreateProgramName'
 import CreateProgramBody from './components/CreateProgramBody'
-
+import UpdatedProgram from './components/UpdatedProgram'
 
 function App() {
    
     const nav = useNavigate()
-
-
-    // TEMP Route getting all Users
-    const [users, setUsers] = useState([])
-
-    useEffect(() => {
-        async function fetchUsers() {
-            const res = await fetch('http://localhost:4001/users')
-            const data = await res.json()
-            setUsers(data)
-        }
-        fetchUsers()
-    }, [])
-
-
-    // TEMP Route getting all Programs
-    const [programs, setPrograms] = useState([])
-
-    useEffect(() => {
-        async function fetchPrograms() {
-            const res = await fetch(`http://localhost:4001/programs/`)
-            const data = await res.json()
-            setPrograms(data)
-        }
-        fetchPrograms()
-    }, [])
-
    
     // POST Login Details
     const loginDetails = async (email, password) => {
@@ -67,7 +40,6 @@ function App() {
         localStorage.clear()
 
         const data = await userLogin.json()
-        console.log(data)
         sessionStorage.setItem('token', JSON.stringify(data))
         const info = jwt_decode(sessionStorage.token)
         sessionStorage.clear()
@@ -141,9 +113,6 @@ function App() {
                     }
                 }
 
-            console.log("ONE", exercise)
-            console.log("HERE", programId.substring(1, 25))
-
             const newExercise = await fetch(`http://localhost:4001/programs/exercise/${programId.substring(1, 25)}`, {
                 method: 'PUT',
                 headers: {
@@ -156,14 +125,22 @@ function App() {
             const data = await newExercise.json()
 
             
-            console.log(data)
-            nav('/user/programs') 
     
         } catch (err) {
             <h2>{err.message}</h2>
         }} 
 
 
+        // GET One Program by ID 
+
+        const [oneProgram, setOneProgram] = useState([]);
+
+        async function fetchOneProgram() {
+            let userId = `http://localhost:4001/programs/${sessionStorage.ProgramId.substring(1, 25)}/`
+            const res = await fetch(userId)
+            const data = await res.json()
+            setOneProgram(data)
+        }
 
     return (
         <>
@@ -171,13 +148,15 @@ function App() {
                 <Route path='/' element={<HomePage />} />
                 <Route path='/users' element={<Users />} />
                 <Route path='/user/program' element={<UserPrograms userPrograms={userPrograms} />} />
+                <Route path='/programs' element={<Programs userPrograms={userPrograms} />} />
                 <Route path='/login' element={<Login loginDetails={loginDetails} />} />
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/badDetails' element={<BadLogin />} />
                 <Route path='/chart' element={<Progress id={id}/>} />
                 <Route path='/progress' element={<Progress userPrograms={userPrograms} />} />
-                <Route path='/createname' element={<CreateProgramName newProgramName={newProgramName} programName={programName} setProgramName={setProgramName} />} />
-                <Route path='/createbody' element={<CreateProgramBody addExercise={addExercise} programName={programName} />} />
+                <Route path='/createname' element={<CreateProgramName newProgramName={newProgramName} programName={programName} setProgramName={setProgramName} fetchOneProgram={fetchOneProgram} />} />
+                <Route path='/createbody' element={<CreateProgramBody addExercise={addExercise} programName={programName} oneProgram={oneProgram} fetchOneProgram={fetchOneProgram} />} />
+                <Route path='/updatedprogram' element={<UpdatedProgram programName={programName} oneProgram={oneProgram}/>} />
                 <Route path='*' element={<h4>Page not found!</h4>} />
             </Routes>
         </>
