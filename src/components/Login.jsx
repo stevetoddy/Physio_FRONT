@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import './Login.css'
 
 const Login = ({ loginDetails }) => {
 
@@ -22,15 +23,24 @@ const Login = ({ loginDetails }) => {
            
     return (
         <>
-            <form onSubmit={submitHandler}>
-                    <input type="text" name="email" value={email}
+           <div className="Auth-form-container">
+                <form className="Auth-form" onSubmit={submitHandler}>
+                    <div className="Auth-form-content">
+                    <h3 className="Auth-form-title">Login In</h3>
+                    <div className="inputs">
+                    
+                    <input className="email" type="text" name="email" placeholder="Enter email" value={email}
                     onChange={changeHandler}/><br />
                 
-                    <input type="password" name="password" value={password}
+                    <input type="password" name="password" placeholder="Enter password" value={password}
                     onChange={changeHandler}/><br />
                 
-                    <input type="submit" name="submit" />
-            </form>
+                      <button className="login-btn" type="submit" name="submit">Submit</button>
+                        </div>
+                        </div>
+                        </form>
+            
+            </div>  
         </>
     )
 }

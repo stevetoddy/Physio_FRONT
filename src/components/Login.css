@@ -1,0 +1,92 @@
+.login {
+    background-color: white;
+}
+
+.Auth-form-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.Auth-form {
+    width: 450px;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.Auth-form-content {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    height: 40%;
+}
+
+.Auth-form-title {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 24px;
+    color: rgb(34, 34, 34);
+    font-weight: 800;
+}
+
+
+ .login-btn {
+    background-color: #302C44;
+    max-width: 100px;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0.5%;
+    outline: none;
+    padding: 10px 16px;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    left: 50%;
+
+}
+
+.login-btn:hover,
+.submitbtn:focus {
+    background-color: #DBCCB6;
+} 
+
+.login-btn{
+    width: 50%;
+}
+
+.inputs {
+    width: 100%;
+
+}
+
+.password {
+    width: 100%;
+    padding: 8px;
+    
+    /* margin: 15px 0px 11px 0px; */
+
+}
+
+.email {
+    width: 100%;
+    padding: 8px;
+}
+
