@@ -39,7 +39,6 @@ const Login = ({ loginDetails }) => {
                         </div>
                         </div>
                         </form>
-            
             </div>  
         </>
     )

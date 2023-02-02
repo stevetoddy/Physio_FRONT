@@ -1,7 +1,7 @@
 import { React } from 'react'
 
 
-const CreateProgramName = ({ newProgramName, programName, setProgramName, fetchOneProgram }) => {        
+const CreateProgramName = ({ newProgramName, programName, setProgramName }) => {        
         
     const submitHandler = e => {
         e.preventDefault();

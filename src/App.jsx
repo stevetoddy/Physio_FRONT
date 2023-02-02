@@ -142,6 +142,17 @@ function App() {
             setOneProgram(data)
         }
 
+        const [oneProgramByName, setOneProgramByName] = useState([]);
+
+        async function getProgramByName(name) {
+            let program = `http://localhost:4001/programs/name/${name}/`
+            const res = await fetch(program)
+            const data = await res.json()
+            setOneProgramByName(data)
+
+        }
+
+
     return (
         <>
             <Routes>
@@ -149,6 +160,7 @@ function App() {
                 <Route path='/users' element={<Users />} />
                 <Route path='/user/program' element={<UserPrograms userPrograms={userPrograms} />} />
                 <Route path='/programs' element={<Programs userPrograms={userPrograms} />} />
+                <Route path='/programs/:id' element={<UserPrograms />} />
                 <Route path='/login' element={<Login loginDetails={loginDetails} />} />
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/badDetails' element={<BadLogin />} />
