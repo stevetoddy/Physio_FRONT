@@ -14,6 +14,7 @@ import SignUp from './components/SignUp'
 import CreateProgramName from './components/CreateProgramName'
 import CreateProgramBody from './components/CreateProgramBody'
 import UpdatedProgram from './components/UpdatedProgram'
+import Navbar from './components/Navbar'
 
 function App() {
    
@@ -155,6 +156,8 @@ function App() {
 
     return (
         <>
+
+            <Navbar />
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/users' element={<Users />} />

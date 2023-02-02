@@ -1,33 +1,30 @@
-import { React, useState } from 'react'
+import { React, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from './Card'
 
 
-const UserPrograms = ({ userPrograms }) => {
+const UserPrograms = () => {
     
     const { id } = useParams()
 
     // GET One Program by ID 
     const [oneProgram, setOneProgram] = useState([]);
 
-    async function fetchOneProgram() {
-        let userId = `http://localhost:4001/programs/${id}/`
-        const res = await fetch(userId)
-        const data = await res.json()
-        setOneProgram(data)
-    }
+    useEffect(() => {
+        async function fetchOneProgram() {
+            let userId = `http://localhost:4001/programs/${id}/`
+            const res = await fetch(userId)
+            const data = await res.json()
+            setOneProgram(data)
+        }
+        fetchOneProgram()
+    },[])
 
-    fetchOneProgram()
+
     return (
         <>
         {oneProgram && 
         <>
-        {/* {Object.keys(oneProgram).map((key) => (
-            <div key={key}>
-                <h3>{oneProgram.key}</h3>
-            </div>
-        ))} */}
-
             <br />
                 <div>
                     <h2>{oneProgram.name}</h2>
@@ -48,7 +45,7 @@ const UserPrograms = ({ userPrograms }) => {
                     </form>
                 </div>               
             </>
-            }
+        }
         </>
     )
 }
