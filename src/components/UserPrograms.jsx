@@ -1,9 +1,15 @@
-import { React, useState, useEffect } from 'react'
-import NewCard from './Card'
+import { React, useState, useCallback } from 'react'
+import Card  from './Card'
 
 
 const UserPrograms = ({ userPrograms }) => {
-    
+    const [selectedData, setSelectedData] = useState([])
+
+    const handleSubmit = (selectedExerciseData) => {
+        setSelectedData({ ...selectedData, selectedExerciseData})
+    }
+
+
     return (
         <>
         <br />
@@ -12,10 +18,14 @@ const UserPrograms = ({ userPrograms }) => {
                     <h2>{program.name}</h2>
                     {program.exercises.map((exercise, index) => (
                         <div key={index}>
-                            <NewCard image={exercise.image} exerciseName={exercise.name} info={exercise.info} />
+                            <Card 
+                                image={exercise.image} 
+                                exerciseName={exercise.name} 
+                                info={exercise.info}
+                                onSubmit={handleSubmit} />
                         </div>
                     ))}
-                    <form>
+                    <form onSubmit={() => console.log(selectedData)}>
                         <input type="submit" value="Submit"/>
                     </form>
                 </div>                
