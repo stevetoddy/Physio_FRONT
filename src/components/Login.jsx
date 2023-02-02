@@ -32,10 +32,10 @@ const Login = ({ loginDetails }) => {
                     <input className="email" type="text" name="email" placeholder="Enter email" value={email}
                     onChange={changeHandler}/><br />
                 
-                    <input type="password" name="password" placeholder="Enter password" value={password}
+                    <input className="password" type="password" name="password" placeholder="Enter password" value={password}
                     onChange={changeHandler}/><br />
                 
-                      <button className="login-btn" type="submit" name="submit">Submit</button>
+                      <button className="login-btn" type="submit" name="submit">Login</button>
                         </div>
                         </div>
                         </form>

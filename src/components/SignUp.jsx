@@ -1,5 +1,6 @@
 import { React, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import './Signup.css'
 
 const SignUp = () => {
 
@@ -26,26 +27,35 @@ const SignUp = () => {
 
   return (
     <>
-        <h1>Sign Up</h1>
-        <h2>Please fill in your details here</h2>
-        <form onSubmit={handleSubmit}>
-                <div className="username-signup-container">
-                    <label>Username:</label>
-                    <input type="text" name="username" placeholder="e.g JaneDoe" value={formData.username}
-                    onChange={handleFormDataChange}/><br />
+    
+      <div className="Auth-form-container">
+        <form className="Auth-form" onSubmit={handleSubmit}>
+          <div className="Auth-form-content">
+            <h3 className="Auth-form-title">Sign Up</h3>
+               <div className="inputs">
+        
+                 <div className="username-signup-container">
+                      <input className="username"type="text" name="username" placeholder="e.g JaneDoe" value={formData.username}
+                      onChange={handleFormDataChange}/><br />
                 </div>
+               
+        
                 <div className="email-signup-container">
-                    <label>Email:</label>
-                    <input type="email" name="email" placeholder="e.g janedoe@email.com" value={formData.email}
+                    <input className="email" type="email" name="email" placeholder="e.g janedoe@email.com" value={formData.email}
                     onChange={handleFormDataChange}/><br />
                 </div>
+                
+        
                 <div className="password-signup-container">
-                    <label>Password:</label>
-                    <input type="password" name="password" value={formData.password}
+                    <input className="password"type="password" name="password" placeholder="secure password" value={formData.password}
                     onChange={handleFormDataChange}/><br />
-                </div>
-                    <input type="submit" name="submit" value="Sign Up"/>
+               </div>
+       
+            </div>
+             <button className="login-btn" type="submit" name="submit">Submit</button>
+          </div>
         </form>
+        </div> 
     </>
   )
 }
