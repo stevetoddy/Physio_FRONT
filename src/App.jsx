@@ -160,6 +160,7 @@ function App() {
                 <Route path='/users' element={<Users />} />
                 <Route path='/user/program' element={<UserPrograms userPrograms={userPrograms} />} />
                 <Route path='/programs' element={<Programs userPrograms={userPrograms} />} />
+                <Route path='/programs/:id' element={<UserPrograms />} />
                 <Route path='/login' element={<Login loginDetails={loginDetails} />} />
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/badDetails' element={<BadLogin />} />

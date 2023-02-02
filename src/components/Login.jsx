@@ -29,7 +29,7 @@ const Login = ({ loginDetails }) => {
                     <input type="password" name="password" value={password}
                     onChange={changeHandler}/><br />
                 
-                    <input type="submit" name="submit" />
+                    <button type="submit" name="submit">Submit</button>
             </form>
         </>
     )

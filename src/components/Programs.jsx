@@ -16,7 +16,7 @@ const Programs = ({ userPrograms }) => {
            <ul className="list-group">
                 {userPrograms.map((program, index) => (
                     <div key={index}>
-                        <li className="list-group-item"><Link to={`/programs/${program._id}`}>{program.name}</Link></li>
+                        <li className="list-group-item"><Link to={`/programs/${program._id}`} >{program.name}</Link></li>
                     </div>
                 ))}
             </ul>}
