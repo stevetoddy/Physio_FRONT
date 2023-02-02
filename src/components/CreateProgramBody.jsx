@@ -40,7 +40,6 @@ const CreateProgramBody = ({ addExercise, programName, fetchOneProgram }) => {
                     onChange={(event) => setExerciseInfo(event.target.value)}
                 />
                     <input type="submit" name="submit" className="btn btn-primary" />
-                    {/* {oneProgram.length > 0 ? console.log("LOOK", oneProgram) : console.log("NOTHING")} */}
 
             </form>
         </>

@@ -142,6 +142,17 @@ function App() {
             setOneProgram(data)
         }
 
+        const [oneProgramByName, setOneProgramByName] = useState([]);
+
+        async function getProgramByName(name) {
+            let program = `http://localhost:4001/programs/name/${name}/`
+            const res = await fetch(program)
+            const data = await res.json()
+            setOneProgramByName(data)
+
+        }
+
+
     return (
         <>
             <Routes>
