@@ -28,15 +28,12 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 100vw;
   min-height: 100vh;
   background-image: url('./components/Images/comet.jpeg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  
-  
-    
+  background-size: cover; 
 }
 
 h1 {
