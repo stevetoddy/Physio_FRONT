@@ -1,5 +1,5 @@
-import { React, useState, useEffect } from 'react'
-import NewCard from './Card'
+import { React } from 'react'
+import Card from './Card'
 
 
 const UserPrograms = ({ userPrograms }) => {
@@ -12,7 +12,7 @@ const UserPrograms = ({ userPrograms }) => {
                     <h2>{program.name}</h2>
                     {program.exercises.map((exercise, index) => (
                         <div key={index}>
-                            <NewCard image={exercise.image} exerciseName={exercise.name} info={exercise.info} />
+                            <Card image={exercise.image} exerciseName={exercise.name} info={exercise.info} />
                         </div>
                     ))}
                     <form>

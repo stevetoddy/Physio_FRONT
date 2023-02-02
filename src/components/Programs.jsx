@@ -1,14 +1,25 @@
-import { React, useState, useEffect } from 'react'
-import NewCard from './Card'
-import ProgramList from './ProgramList'
+import { React } from 'react'
+import { Link } from 'react-router-dom'
 
-const Programs = () => {
-  
+const styles = {
+    background: 'lightgrey',
+    padding: '0.5rem',
+    margin: '0.5rem',
+    borderRadius: '0.5rem',
+    color: "black"
+}
 
+const Programs = ({ userPrograms }) => {
     return (
         <>
-            <h2>Program List</h2>
-            <ProgramList />
+           {userPrograms.length > 0 && 
+           <ul className="list-group">
+                {userPrograms.map((program, index) => (
+                    <div key={index}>
+                        <li className="list-group-item"><Link to='/programs'>{program.name}</Link></li>
+                    </div>
+                ))}
+            </ul>}
         </>
     )
 }

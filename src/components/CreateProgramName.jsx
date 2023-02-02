@@ -1,7 +1,7 @@
 import { React } from 'react'
 
 
-const CreateProgramName = ({ newProgramName, programName, setProgramName }) => {        
+const CreateProgramName = ({ newProgramName, programName, setProgramName, fetchOneProgram }) => {        
         
     const submitHandler = e => {
         e.preventDefault();
@@ -25,7 +25,6 @@ const CreateProgramName = ({ newProgramName, programName, setProgramName }) => {
                 <br />
                     <input type="submit" name="submit" className="btn btn-primary" />
             </form>
-
         </>
     )
 }
