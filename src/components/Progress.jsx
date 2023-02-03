@@ -16,7 +16,7 @@ const Progress = ({ id }) => {
         setUserPrograms(data)
     }
     fetchUserPrograms()
-    }, [])
+    }, [userPrograms])
 
     return (
         <>

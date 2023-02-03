@@ -101,7 +101,8 @@ const UserPrograms = () => {
               ))}
             </div>
             <form onSubmit={handleSubmit}>
-              <input style={{marginLeft:"35vw"}} type="submit" value="Submit" />
+              {/* <input style={{}} type="submit"  /> */}
+              <button style={{margin: "0 2rem 2rem", marginLeft:"35vw", marginBottom:'30px'}} className="login-btn" type="submit" name="submit" value="Submit">Submit</button>
             </form>
           </div>
         </>)}
