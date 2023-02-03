@@ -1,15 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Avatar from './Images/avatar.png'
 
 const Home = () => {
     return (
         <>
-
-<img className="avatar" src={Avatar}></img>
-            <h1>HOME PAGE</h1>
-            <ul>
-            </ul>
+            <div >
+                <img style={{width:"200px", margin:"20px"}}className="avatar" src={Avatar}></img>
+                <h1>Welcome to Physio App</h1>
+            </div>
         </>
     )
 }
