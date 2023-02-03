@@ -1,11 +1,11 @@
 import { React } from 'react'
-import Navbar from './Navbar';
+import Navbar from './Navbar'
 
 
 const CreateProgramName = ({ newProgramName, programName, setProgramName }) => {        
         
     const submitHandler = e => {
-        e.preventDefault();
+        e.preventDefault()
         newProgramName(programName, sessionStorage.id.substring(1, 25))
     }
 

@@ -65,6 +65,11 @@ function Chart( {metrics} ) {
     ]
   }
 
+  const datasetsToRender = data.datasets.filter(dataset => dataset.data.length > 0)
+  if (!datasetsToRender.length) {
+    return null
+  }
+
   const options = {
     type: 'line',
     plugins: {
@@ -79,9 +84,15 @@ function Chart( {metrics} ) {
       percentage: {
         position: 'right',
         beginAtZero: true,
-        max: 100,
         ticks: {
-          color: 'yellow'
+          color: 'yellow',
+          max: 110,
+          callback: function(value, index, values) {
+            if (value > 100) {
+              return ''
+            }
+            return value + '%'
+          }
         }
       }
   }

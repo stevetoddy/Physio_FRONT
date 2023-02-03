@@ -67,11 +67,11 @@ export function App() {
         setUserPrograms(data)
     }
     fetchUserPrograms()
-    }, [id, fetchOneProgram])
+    }, [id])
     
          
         
-    const [programName, setProgramName] = useState([]);
+    const [programName, setProgramName] = useState([])
 
     // POST New Program Name
     const newProgramName = async (name, userID) => {
@@ -131,7 +131,7 @@ export function App() {
 
         // GET One Program by ID 
 
-        const [oneProgram, setOneProgram] = useState([]);
+        const [oneProgram, setOneProgram] = useState([])
 
         async function fetchOneProgram() {
             let userId = `http://localhost:4002/programs/${sessionStorage.ProgramId.substring(1, 25)}/`

@@ -9,18 +9,18 @@ const Login = ({ loginDetails }) => {
     const [data,setData] = useState({
         email:"",
         password:""
-    });
+    })
                 
-    const { email, password } = data;
+    const { email, password } = data
             
     const changeHandler = e => {
         const userDetails = {[e.target.name]:[e.target.value]}
 
-        setData({...data, [e.target.name]:[e.target.value]});
+        setData({...data, [e.target.name]:[e.target.value]})
         }  
         
     const submitHandler = e => {
-        e.preventDefault();
+        e.preventDefault()
         loginDetails(data.email[0], data.password[0])
     }
            
