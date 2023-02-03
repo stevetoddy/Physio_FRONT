@@ -10,7 +10,6 @@ import {
   Legend,
   Tooltip
 } from 'chart.js'
-import Navbar from './Navbar'
 
 ChartJS.register(
   LineElement,

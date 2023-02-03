@@ -2,7 +2,15 @@ import React, { useEffect, useState } from 'react'
 import Chart from './Chart'
 import Navbar from './Navbar'
 
-// Props
+const styles = {
+    background: 'lightgrey',
+    padding: '0.5rem',
+    width: '525px',
+    margin: '0.5rem 1rem',
+    borderRadius: '0.5rem',
+    color: "black",
+}
+
 const Progress = ({ id }) => {
 
   const [userPrograms, setUserPrograms] = useState([])
@@ -21,7 +29,7 @@ const Progress = ({ id }) => {
     return (
         <>
           <Navbar />
-          <h2>Progress</h2>
+          <h2 style={{margin: '1rem 1rem 2rem'}}>Progress</h2>
           <div>
             {userPrograms.map((program, index) => {
               if (program.metrics.length === 0) {
@@ -30,7 +38,7 @@ const Progress = ({ id }) => {
       
               return (
                 <div key={index}>
-                  <h4>{program.name}</h4>
+                  <h4 style={styles}>{program.name}</h4>
                   <Chart metrics={program.metrics} />
                 </div>
               )

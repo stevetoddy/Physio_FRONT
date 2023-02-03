@@ -5,6 +5,7 @@ import Navbar from './Navbar'
 const styles = {
     background: 'lightgrey',
     padding: '0.5rem',
+    width: '525px',
     margin: '0.5rem 1rem',
     borderRadius: '0.5rem',
     color: "black",
