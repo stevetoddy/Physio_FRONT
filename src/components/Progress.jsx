@@ -20,20 +20,24 @@ const Progress = ({ id }) => {
 
     return (
         <>
-            <Navbar />            
-            <h2>Progress</h2>
-            <div>
-            {userPrograms.map((program, index) => (
-                        <div key={index}>
-                            <h2>{program.name}</h2>
-                            <Chart metrics={program.metrics} />
-                            </div> 
-                            )
-                    )
-                }
-            </div>
+          <Navbar />
+          <h2>Progress</h2>
+          <div>
+            {userPrograms.map((program, index) => {
+              if (program.metrics.length === 0) {
+                return null
+              }
+      
+              return (
+                <div key={index}>
+                  <h4>{program.name}</h4>
+                  <Chart metrics={program.metrics} />
+                </div>
+              )
+            })}
+          </div>
         </>
-    )
+      )
 }
 
 export default Progress
