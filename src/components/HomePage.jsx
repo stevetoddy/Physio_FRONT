@@ -1,16 +1,16 @@
 import React from 'react'
 import Avatar from './Images/avatar.png'
-import Navbar from './Navbar'
+import './Homepage.css'
 
 const Home = () => {
     return (
-        <>
-            <Navbar />
-            <div >
-                <img style={{width:"200px", margin:"20px"}}className="avatar" src={Avatar}></img>
-                <h1>Welcome to Physio App</h1>
+        <div className='homepage-container'>
+        
+            <div className="homepage-img-wrapper">
+                <img className="avatar" src={Avatar}></img>
+                <h1 className="welcome">Welcome to Physio App</h1>
             </div>
-        </>
+        </div>
     )
 }
 

@@ -1,0 +1,27 @@
+
+.container-fluid {
+    color: red;
+}
+
+.navbarcolor{
+    background-color: #DBCCB6;
+}
+
+.navbarcolor:hover,
+.navbarcolor:focus {
+  background-color: cornflowerblue;
+}  
+
+
+
+.container-fluid:hover,
+.container-fluid:focus{
+
+  background-color: #DBCCB6;
+}  
+
+
+#heading:hover,
+#heading:focus {
+  background-color: cornflowerblue;
+}  
