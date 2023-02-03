@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import { Routes, Route, useNavigate } from 'react-router-dom'
-import Users from './components/Users'
 import HomePage from './components/HomePage'
 import Programs from './components/Programs'
 import Progress from './components/Progress'
@@ -13,7 +12,6 @@ import SignUp from './components/SignUp'
 import CreateProgramName from './components/CreateProgramName'
 import CreateProgramBody from './components/CreateProgramBody'
 import UpdatedProgram from './components/UpdatedProgram'
-import Navbar from './components/Navbar'
 
 
 
@@ -147,11 +145,7 @@ export function App() {
             <Routes>
                 <Route path='/login' element={<Login loginDetails={loginDetails} />} />
                 <Route path='/signup' element={<SignUp />} />
-            </Routes>
-            <Navbar />
-            <Routes>
                 <Route path='/' element={<HomePage />} />
-                <Route path='/users' element={<Users />} />
                 <Route path='/user/program' element={<UserPrograms userPrograms={userPrograms} />} />
                 <Route path='/programs' element={<Programs userPrograms={userPrograms} />} />
                 <Route path='/programs/:id' element={<UserPrograms />} />

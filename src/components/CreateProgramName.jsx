@@ -1,4 +1,5 @@
 import { React } from 'react'
+import Navbar from './Navbar';
 
 
 const CreateProgramName = ({ newProgramName, programName, setProgramName }) => {        
@@ -10,6 +11,7 @@ const CreateProgramName = ({ newProgramName, programName, setProgramName }) => {
 
     return (
         <>
+            <Navbar />
             <form className="mb-3" onSubmit={submitHandler}>
                 <h3 style={{margin: "2rem"}}>Program Name</h3>
                

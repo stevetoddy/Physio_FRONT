@@ -1,5 +1,6 @@
 import { React } from 'react'
 import { Link } from 'react-router-dom'
+import Navbar from './Navbar'
 
 const styles = {
     background: 'lightgrey',
@@ -18,8 +19,9 @@ const linkStyles = {
 const Programs = ({ userPrograms }) => {
     return (
         <>
-           {userPrograms.length > 0 && 
-           <ul className="list-group">
+            <Navbar />
+            {userPrograms.length > 0 && 
+            <ul className="list-group">
                 {userPrograms.map((program, index) => (
                     <div key={index}>
                         <h4 style={styles} className="list-group-item"><Link style={linkStyles} to={`/programs/${program._id}`} >{program.name}</Link></h4>

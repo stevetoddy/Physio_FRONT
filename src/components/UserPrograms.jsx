@@ -2,6 +2,7 @@ import React, { useState, useContext, createContext, useEffect } from 'react'
 
 import { useParams } from 'react-router-dom'
 import Card from './Card'
+import Navbar from './Navbar';
 
 export const MetricsContext = createContext({});
 
@@ -54,6 +55,9 @@ const UserPrograms = () => {
   }, [id]);
 
   return (
+    <>
+    <Navbar />
+    <div>
     <MetricsContext.Provider
       value={{ pain, difficulty, completion, updateMetrics }}
     >
@@ -61,7 +65,7 @@ const UserPrograms = () => {
         <>
           <br />
           <div>
-            <h2>{oneProgram.name}</h2>
+            <h2 style={{marginLeft:"32vw"}}>{oneProgram.name}</h2>
             <div>
               {oneProgram.exercises.map((exercise, i) => (
                 <Card
@@ -83,8 +87,9 @@ const UserPrograms = () => {
           </div>
         </>)}
     </MetricsContext.Provider>
+    </div>
+    </>
   )
-
 }
 
 export default UserPrograms

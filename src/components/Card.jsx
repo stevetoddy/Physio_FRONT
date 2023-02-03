@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const Card = ({ image, exerciseName, info, pain, difficulty, completion, updateMetrics, index }) => {
 
     return (
-        <>
-            <div className="card">
+        <>  
+            <div className="card" style={{textAlign:"center", width:"400px", padding:"2rem", marginLeft:"30vw"}}>
             <img src={ image } className="card-img-top" alt="Exercise Image" />
                 <div className="card-body">
                     <h5 className="card-title">{ exerciseName }</h5>
