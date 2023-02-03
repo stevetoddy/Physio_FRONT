@@ -1,12 +1,15 @@
 import React, { useState, useContext, createContext, useEffect } from 'react'
-
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Card from './Card'
 import Navbar from './Navbar'
 
 export const MetricsContext = createContext({})
 
+
 const UserPrograms = () => {
+    
+  const nav = useNavigate()
+  
   const [pain, setPain] = useState([0, 0, 0])
   const [difficulty, setDifficulty] = useState([0, 0, 0])
   const [completion, setCompletion] = useState([0, 0, 0])
@@ -54,6 +57,7 @@ const UserPrograms = () => {
     })
       .then(res => res.json())
       .catch(err => console.err)
+      nav('/chart')
   }
   
 
@@ -80,7 +84,7 @@ const UserPrograms = () => {
         <>
           <br />
           <div>
-            <h2 style={{marginLeft:"32vw"}}>{oneProgram.name}</h2>
+            <h2 style={{marginLeft:"35vw"}}>{oneProgram.name}</h2>
             <div>
               {oneProgram.exercises.map((exercise, i) => (
                 <Card
@@ -97,7 +101,7 @@ const UserPrograms = () => {
               ))}
             </div>
             <form onSubmit={handleSubmit}>
-              <input type="submit" value="Submit" />
+              <input style={{marginLeft:"35vw"}} type="submit" value="Submit" />
             </form>
           </div>
         </>)}

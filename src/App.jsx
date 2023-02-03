@@ -56,18 +56,7 @@ export function App() {
     const programId = sessionStorage.ProgramId
 
 
-    // GET Logged In Users Programs 
-    const [userPrograms, setUserPrograms] = useState([])
-       
-    useEffect(() => {
-    async function fetchUserPrograms() {
-        let userId = `http://localhost:4001/programs/users/${id.substring(1, 25)}/`
-        const res = await fetch(userId)
-        const data = await res.json()
-        setUserPrograms(data)
-    }
-    fetchUserPrograms()
-    }, [id])
+
     
          
         
@@ -99,6 +88,20 @@ export function App() {
         } catch (err) {
             <h2>{err.message}</h2>
         }}
+
+
+    // GET Logged In Users Programs 
+    const [userPrograms, setUserPrograms] = useState([])
+       
+    useEffect(() => {
+    async function fetchUserPrograms() {
+        let userId = `http://localhost:4001/programs/users/${id.substring(1, 25)}/`
+        const res = await fetch(userId)
+        const data = await res.json()
+        setUserPrograms(data)
+    }
+    fetchUserPrograms()
+    }, [id, newProgramName])
 
 
     // PUT New Exercises
