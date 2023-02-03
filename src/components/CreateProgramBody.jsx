@@ -3,15 +3,16 @@ import { useNavigate } from 'react-router-dom'
 import Navbar from './Navbar';
 import './CreateProgramBody.css'
 
+
 const CreateProgramBody = ({ addExercise, programName, fetchOneProgram }) => {
     
     const nav = useNavigate()
 
-    const [exerciseName, setExerciseName] = useState([]);
-    const [exerciseInfo, setExerciseInfo] = useState([]);
+    const [exerciseName, setExerciseName] = useState([])
+    const [exerciseInfo, setExerciseInfo] = useState([])
         
     const submitHandler = e => {
-        e.preventDefault();
+        e.preventDefault()
         addExercise(exerciseName, exerciseInfo)
         fetchOneProgram()
         nav("/updatedprogram")

@@ -1,68 +1,77 @@
 import React, { useState, useContext, createContext, useEffect } from 'react'
-
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Card from './Card'
-import Navbar from './Navbar';
+import Navbar from './Navbar'
 
-export const MetricsContext = createContext({});
+export const MetricsContext = createContext({})
+
 
 const UserPrograms = () => {
-  const [pain, setPain] = useState([0, 0, 0]);
-  const [difficulty, setDifficulty] = useState([0, 0, 0]);
-  const [completion, setCompletion] = useState([0, 0, 0]);
-  const { id } = useParams();
-  const [oneProgram, setOneProgram] = useState({ loading: true });
+    
+  const nav = useNavigate()
+  
+  const [pain, setPain] = useState([0, 0, 0])
+  const [difficulty, setDifficulty] = useState([0, 0, 0])
+  const [completion, setCompletion] = useState([0, 0, 0])
+  const { id } = useParams()
+  const [oneProgram, setOneProgram] = useState({ loading: true })
 
 
   const updateMetrics = (index, newPain, newDifficulty, newCompletion) => {
     setPain(prevPain => {
-      const newPainArray = [...prevPain];
-      newPainArray[index] = newPain;
-      return newPainArray;
-    });
+      const newPainArray = [...prevPain]
+      newPainArray[index] = newPain
+      return newPainArray
+    })
     setDifficulty(prevDifficulty => {
-      const newDifficultyArray = [...prevDifficulty];
-      newDifficultyArray[index] = newDifficulty;
-      return newDifficultyArray;
-    });
+      const newDifficultyArray = [...prevDifficulty]
+      newDifficultyArray[index] = newDifficulty
+      return newDifficultyArray
+    })
     setCompletion(prevCompletion => {
-      const newCompletionArray = [...prevCompletion];
-      newCompletionArray[index] = newCompletion;
-      return newCompletionArray;
-    });
-  };
+      const newCompletionArray = [...prevCompletion]
+      newCompletionArray[index] = newCompletion
+      return newCompletionArray
+    })
+  }
 
-
-  const handleSubmit = (x) => {
-    const totalPain = pain.reduce((a, b) => a + b, 0);
-    const totalDifficulty = difficulty.reduce((a, b) => a + b, 0);
-    const totalCompletion = completion.reduce((a, b) => a + b, 0);
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const x = oneProgram.exercises.length
+    const totalPain = pain.reduce((a, b) => a + b, 0)
+    const totalDifficulty = difficulty.reduce((a, b) => a + b, 0)
+    const totalCompletion = completion.reduce((a, b) => a + b, 0)
     const metrics = {
-        date: new Date().toLocaleDateString() + "",
+        date: new Date().toLocaleDateString(),
         pain: totalPain / x,
-        difficulty: totalDifficulty / x,
-        completion: totalCompletion / x
+        diff: totalDifficulty / x,
+        complete: totalCompletion / x
     }
-    fetch(`http://localhost:4002/metrics/${id}`, {
+    console.log(metrics)
+    fetch(`http://localhost:4001/programs/metrics/${id}/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(metrics)
+      body: JSON.stringify({ metrics })
     })
       .then(res => res.json())
-      .then(data => console.log(data))
-      .catch(error => console.error(error));
-  };
+      .catch(err => console.err)
+      nav('/chart')
+  }
+  
 
   useEffect(() => {
     async function fetchOneProgram() {
-      const res = await fetch(`http://localhost:4002/programs/${id}/`);
-      const data = await res.json();
-      setOneProgram(data);
-    }
-    fetchOneProgram();
-  }, [id]);
+        const res = await fetch(`http://localhost:4001/programs/${id}/`)
+        const data = await res.json()
+        setOneProgram(data)
+        setPain(Array(data.exercises.length).fill(0))
+        setDifficulty(Array(data.exercises.length).fill(0))
+        setCompletion(Array(data.exercises.length).fill(0))
+        }
+        fetchOneProgram()
+    }, [id])
 
   return (
     <>
@@ -75,7 +84,7 @@ const UserPrograms = () => {
         <>
           <br />
           <div>
-            <h2 style={{marginLeft:"32vw"}}>{oneProgram.name}</h2>
+            <h2 style={{marginLeft:"35vw"}}>{oneProgram.name}</h2>
             <div>
               {oneProgram.exercises.map((exercise, i) => (
                 <Card
@@ -91,8 +100,9 @@ const UserPrograms = () => {
                 />
               ))}
             </div>
-            <form onSubmit={handleSubmit(oneProgram.exercises.length)}>
-              <input type="submit" value="Submit" />
+            <form onSubmit={handleSubmit}>
+              {/* <input style={{}} type="submit"  /> */}
+              <button style={{margin: "0 2rem 2rem", marginLeft:"35vw", marginBottom:'30px'}} className="login-btn" type="submit" name="submit" value="Submit">Submit</button>
             </form>
           </div>
         </>)}

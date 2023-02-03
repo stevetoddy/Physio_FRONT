@@ -2,10 +2,11 @@ import { React } from 'react'
 import './CreateProgramName.css'
 
 
+
 const CreateProgramName = ({ newProgramName, programName, setProgramName }) => {        
         
     const submitHandler = e => {
-        e.preventDefault();
+        e.preventDefault()
         newProgramName(programName, sessionStorage.id.substring(1, 25))
     }
 

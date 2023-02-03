@@ -10,30 +10,34 @@ const Progress = ({ id }) => {
 
     useEffect(() => {
     async function fetchUserPrograms() {
-        let userId = `http://localhost:4002/programs/users/${id.substring(1, 25)}/`
+        let userId = `http://localhost:4001/programs/users/${id.substring(1, 25)}/`
         const res = await fetch(userId)
         const data = await res.json()
         setUserPrograms(data)
     }
     fetchUserPrograms()
-    }, [])
+    }, [userPrograms])
 
     return (
         <>
-            <Navbar />            
-            <h2>Progress</h2>
-            <div>
-            {userPrograms.map((program, index) => (
-                        <div key={index}>
-                            <h2>{program.name}</h2>
-                            <Chart metrics={program.metrics} />
-                            </div> 
-                            )
-                    )
-                }
-            </div>
+          <Navbar />
+          <h2>Progress</h2>
+          <div>
+            {userPrograms.map((program, index) => {
+              if (program.metrics.length === 0) {
+                return null
+              }
+      
+              return (
+                <div key={index}>
+                  <h4>{program.name}</h4>
+                  <Chart metrics={program.metrics} />
+                </div>
+              )
+            })}
+          </div>
         </>
-    )
+      )
 }
 
 export default Progress
