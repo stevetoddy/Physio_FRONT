@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Chart from './Chart'
+import Navbar from './Navbar'
 
 // Props
 const Progress = ({ id }) => {
@@ -17,22 +18,22 @@ const Progress = ({ id }) => {
     fetchUserPrograms()
     }, [])
 
-  return (
-    <>
-      <h2>Progress</h2>
-      <div>
-      {userPrograms.map((program, index) => (
-                <div key={index}>
-                    <h2>{program.name}</h2>
-                    <Chart metrics={program.metrics} />
-                    </div> 
+    return (
+        <>
+            <Navbar />            
+            <h2>Progress</h2>
+            <div>
+            {userPrograms.map((program, index) => (
+                        <div key={index}>
+                            <h2>{program.name}</h2>
+                            <Chart metrics={program.metrics} />
+                            </div> 
+                            )
                     )
-              )
-        }
-      </div>
-    </>
-    
-  )
+                }
+            </div>
+        </>
+    )
 }
 
 export default Progress

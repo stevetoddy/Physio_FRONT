@@ -10,6 +10,7 @@ import {
   Legend,
   Tooltip
 } from 'chart.js'
+import Navbar from './Navbar'
 
 ChartJS.register(
   LineElement,
@@ -86,6 +87,7 @@ function Chart( {metrics} ) {
   }
   }
   return (
+    <>
     <div className="App">
       <div style={
           {
@@ -101,6 +103,7 @@ function Chart( {metrics} ) {
         ></Line>
       </div>
     </div>
+    </>
   )
 }
 

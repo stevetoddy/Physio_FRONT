@@ -1,5 +1,6 @@
 import { React, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Navbar from './Navbar';
 
 const CreateProgramBody = ({ addExercise, programName, fetchOneProgram }) => {
     
@@ -17,6 +18,7 @@ const CreateProgramBody = ({ addExercise, programName, fetchOneProgram }) => {
 
     return (
         <>
+            <Navbar />
             <form className="mb-3" onSubmit={submitHandler}>
                 <h3 style={{margin: "2rem"}}>{programName}</h3>
                
