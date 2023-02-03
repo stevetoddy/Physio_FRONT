@@ -126,8 +126,6 @@ export function App() {
     
             const data = await newExercise.json()
 
-            
-    
         } catch (err) {
             <h2>{err.message}</h2>
         }} 
@@ -143,17 +141,6 @@ export function App() {
             const data = await res.json()
             setOneProgram(data)
         }
-
-        // const [oneProgramByName, setOneProgramByName] = useState([]);
-
-        // async function getProgramByName(name) {
-        //     let program = `http://localhost:4001/programs/name/${name}/`
-        //     const res = await fetch(program)
-        //     const data = await res.json()
-        //     setOneProgramByName(data)
-
-        // }
-
 
     return (
         <>
