@@ -1,0 +1,64 @@
+.create-name-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.create-name-form{
+width: 450px;
+box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-radius: 8px;
+background-color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+}
+
+.input{
+    width: 80%;
+}
+
+.name-save-button{
+    background-color: #302C44;
+    max-width: 100px;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0.5%;
+    outline: none;
+    padding: 10px 16px;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    
+}
+
+
+.name-save-button:hover,
+.name-save-button:focus {
+    background-color: #DBCCB6;
+} 
+
+.program-name-heading{
+    padding-bottom: 17px;
+    margin-top: 30px;
+}

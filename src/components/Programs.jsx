@@ -5,7 +5,7 @@ import Navbar from './Navbar'
 const styles = {
     background: 'lightgrey',
     padding: '0.5rem',
-    margin: '0.5rem 2rem',
+    // margin: '0.5rem 2rem',
     borderRadius: '0.5rem',
     color: "black",
 }
@@ -20,6 +20,8 @@ const Programs = ({ userPrograms }) => {
     return (
         <>
             <Navbar />
+       
+
             {userPrograms.length > 0 && 
             <ul className="list-group">
                 {userPrograms.map((program, index) => (

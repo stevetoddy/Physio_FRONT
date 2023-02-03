@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './Navbar.css'
 
 const Navbar = () => {
     return (
 
         // 'class' is replaced with 'className' to avoid errors
 
-        <nav id="heading" className="navbar navbar-expand-lg bg-warning bg-gradient">
+        <nav id="heading" className="navbar navbar-expand-lg navbarcolor">
             <div  className="container-fluid">
 
                 {/* 'Link' replaces anchor tags, and 'to' replaces the href to avoid re-render*/}
