@@ -1,7 +1,10 @@
 import { React, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Login.css'
 
 const Login = ({ loginDetails }) => {
+
+    sessionStorage.clear()
 
     const [data,setData] = useState({
         email:"",
@@ -26,20 +29,25 @@ const Login = ({ loginDetails }) => {
            <div className="Auth-form-container">
                 <form className="Auth-form" onSubmit={submitHandler}>
                     <div className="Auth-form-content">
-                    <h3 className="Auth-form-title">Login In</h3>
-                    <div className="inputs">
-                    
-                    <input className="email" type="text" name="email" placeholder="Enter email" value={email}
-                    onChange={changeHandler}/><br />
-                
-                    <input className="password" type="password" name="password" placeholder="Enter password" value={password}
-                    onChange={changeHandler}/><br />
-                
-                      <button className="login-btn" type="submit" name="submit">Login</button>
+                        <h3 className="Auth-form-title">Login In</h3>
+                        <div className="inputs">
+                        
+                            <input className="email" type="text" name="email" placeholder="Enter email" value={email}
+                            onChange={changeHandler}/><br />
+                        
+                            <input className="password" type="password" name="password" placeholder="Enter password" value={password}
+                            onChange={changeHandler}/><br />
+                        
+                            <button style={{margin: "20px 0"}} className="login-btn" type="submit" name="submit">Login</button>
                         </div>
-                        </div>
-                        </form>
+                        <Link  style={{margin:"10px"}} to={`/signup`}>Sign Up</Link>
+
+                    </div>
+
+                </form>
             </div>  
+            <div>
+            </div>
         </>
     )
 }
