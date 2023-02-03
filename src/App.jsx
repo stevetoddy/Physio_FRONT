@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react'
 import './App.css'
-import { Routes, Route, useParams, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import Users from './components/Users'
 import HomePage from './components/HomePage'
 import Programs from './components/Programs'
@@ -68,7 +68,7 @@ function App() {
         setUserPrograms(data)
     }
     fetchUserPrograms()
-    }, [])
+    }, [loginDetails, fetchOneProgram])
     
          
         
@@ -109,7 +109,7 @@ function App() {
             const exercise = {
                 exercises: {
                     name: name,
-                    image: "Temp Image",
+                    image: "IMAGE LINK",
                     info: info
                     }
                 }
@@ -143,15 +143,15 @@ function App() {
             setOneProgram(data)
         }
 
-        const [oneProgramByName, setOneProgramByName] = useState([]);
+        // const [oneProgramByName, setOneProgramByName] = useState([]);
 
-        async function getProgramByName(name) {
-            let program = `http://localhost:4001/programs/name/${name}/`
-            const res = await fetch(program)
-            const data = await res.json()
-            setOneProgramByName(data)
+        // async function getProgramByName(name) {
+        //     let program = `http://localhost:4001/programs/name/${name}/`
+        //     const res = await fetch(program)
+        //     const data = await res.json()
+        //     setOneProgramByName(data)
 
-        }
+        // }
 
 
     return (
