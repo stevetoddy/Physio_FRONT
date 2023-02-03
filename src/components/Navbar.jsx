@@ -40,8 +40,8 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/login">
-                                Logout
+                            <Link style={{fontWeight: 'bold'}} className="nav-link" to="/login">
+                                LOGOUT
                             </Link>
                         </li>
                     </ul>

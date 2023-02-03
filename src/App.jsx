@@ -69,7 +69,7 @@ export function App() {
         setUserPrograms(data)
     }
     fetchUserPrograms()
-    }, [loginDetails, fetchOneProgram])
+    }, [id, fetchOneProgram])
     
          
         
@@ -144,7 +144,10 @@ export function App() {
 
     return (
         <>
-
+            <Routes>
+                <Route path='/login' element={<Login loginDetails={loginDetails} />} />
+                <Route path='/signup' element={<SignUp />} />
+            </Routes>
             <Navbar />
             <Routes>
                 <Route path='/' element={<HomePage />} />
@@ -152,8 +155,6 @@ export function App() {
                 <Route path='/user/program' element={<UserPrograms userPrograms={userPrograms} />} />
                 <Route path='/programs' element={<Programs userPrograms={userPrograms} />} />
                 <Route path='/programs/:id' element={<UserPrograms />} />
-                <Route path='/login' element={<Login loginDetails={loginDetails} />} />
-                <Route path='/signup' element={<SignUp />} />
                 <Route path='/badDetails' element={<BadLogin />} />
                 <Route path='/chart' element={<Progress id={id}/>} />
                 <Route path='/progress' element={<Progress userPrograms={userPrograms} />} />
