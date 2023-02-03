@@ -85,7 +85,7 @@ function Chart( {metrics} ) {
         position: 'right',
         beginAtZero: true,
         ticks: {
-          color: 'yellow',
+          color: 'black',
           max: 110,
           callback: function(value, index, values) {
             if (value > 100) {
@@ -105,7 +105,7 @@ function Chart( {metrics} ) {
           width: '600px',
           height: '300px',
           padding: '20px',
-          backgroundColor: 'grey'
+          backgroundColor: 'white'
           }
         }>
         <Line
