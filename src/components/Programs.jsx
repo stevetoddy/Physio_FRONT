@@ -4,9 +4,15 @@ import { Link } from 'react-router-dom'
 const styles = {
     background: 'lightgrey',
     padding: '0.5rem',
-    margin: '0.5rem',
+    margin: '0.5rem 2rem',
     borderRadius: '0.5rem',
-    color: "black"
+    color: "black",
+}
+
+const linkStyles = {
+    textDecoration: 'none',
+    color: 'darkBlue'
+
 }
 
 const Programs = ({ userPrograms }) => {
@@ -16,7 +22,7 @@ const Programs = ({ userPrograms }) => {
            <ul className="list-group">
                 {userPrograms.map((program, index) => (
                     <div key={index}>
-                        <li className="list-group-item"><Link to={`/programs/${program._id}`} >{program.name}</Link></li>
+                        <h4 style={styles} className="list-group-item"><Link style={linkStyles} to={`/programs/${program._id}`} >{program.name}</Link></h4>
                     </div>
                 ))}
             </ul>}
