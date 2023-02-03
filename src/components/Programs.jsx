@@ -20,6 +20,7 @@ const Programs = ({ userPrograms }) => {
     return (
         <>
             <Navbar />
+            
             {userPrograms.length > 0 && 
             <ul className="list-group">
                 {userPrograms.map((program, index) => (

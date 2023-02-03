@@ -29,7 +29,7 @@ const Login = ({ loginDetails }) => {
            <div className="Auth-form-container">
                 <form className="Auth-form" onSubmit={submitHandler}>
                     <div className="Auth-form-content">
-                        <h3 className="Auth-form-title">Login In</h3>
+                        <h3 className="Auth-form-title">Login</h3>
                         <div className="inputs">
                         
                             <input className="email" type="text" name="email" placeholder="Enter email" value={email}

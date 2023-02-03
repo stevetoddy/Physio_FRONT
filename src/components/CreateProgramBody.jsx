@@ -1,6 +1,7 @@
 import { React, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from './Navbar';
+import './CreateProgramBody.css'
 
 const CreateProgramBody = ({ addExercise, programName, fetchOneProgram }) => {
     
@@ -19,13 +20,15 @@ const CreateProgramBody = ({ addExercise, programName, fetchOneProgram }) => {
     return (
         <>
             <Navbar />
-            <form className="mb-3" onSubmit={submitHandler}>
-                <h3 style={{margin: "2rem"}}>{programName}</h3>
+
+            <div className="create-name-container">
+            <form className="create-name-form" onSubmit={submitHandler}>
+                <h3>{programName}</h3>
                
                 <input
-                    style={{margin: "0 2rem"}}
+                    // style={{margin: "0 2rem"}}
                     type="text"
-                    className="form-control" 
+                    className="input" 
                     id="exampleFormControlInput1"
                     name="name"
                     value={exerciseName}
@@ -36,7 +39,7 @@ const CreateProgramBody = ({ addExercise, programName, fetchOneProgram }) => {
                 <input
                     style={{margin: "0 2rem 2rem"}}
                     type="text"
-                    className="form-control" 
+                    className="input" 
                     id="exampleFormControlInput1"
                     name="info"
                     value={exerciseInfo}
@@ -48,6 +51,7 @@ const CreateProgramBody = ({ addExercise, programName, fetchOneProgram }) => {
                     {/* <input type="submit" name="submit" className="btn btn-primary" /> */}
 
             </form>
+            </div>
         </>
     )
 }
