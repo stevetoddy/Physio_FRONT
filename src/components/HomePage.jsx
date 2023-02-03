@@ -1,20 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Avatar from './Images/avatar.png'
 
 const Home = () => {
     return (
         <>
-            <h1>HOME PAGE</h1>
-            <ul>
-                <li><Link to={`/`}>Home</Link></li>
-                <li><Link to={`/user/program`}>Programs</Link></li>
-                <li><Link to={`/programs`}>Program Link</Link></li>
-                <li><Link to={`/login`}>Login</Link></li>
-                <li><Link to={`/signup`}>Sign Up</Link></li>
-                <li><Link to={`/chart`}>Chart</Link></li>
-                <li><Link to={`/progress`}>Progress</Link></li>
-                <li><Link to={`/createname`}>Create Program</Link></li>
-            </ul>
+            <div >
+                <img style={{width:"200px", margin:"20px"}}className="avatar" src={Avatar}></img>
+                <h1>Welcome to Physio App</h1>
+            </div>
         </>
     )
 }

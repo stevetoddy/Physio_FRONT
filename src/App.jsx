@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { Routes, Route, useParams, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import Users from './components/Users'
 import HomePage from './components/HomePage'
 import Programs from './components/Programs'
@@ -13,6 +13,7 @@ import SignUp from './components/SignUp'
 import CreateProgramName from './components/CreateProgramName'
 import CreateProgramBody from './components/CreateProgramBody'
 import UpdatedProgram from './components/UpdatedProgram'
+import Navbar from './components/Navbar'
 
 
 
@@ -68,7 +69,7 @@ export function App() {
         setUserPrograms(data)
     }
     fetchUserPrograms()
-    }, [])
+    }, [loginDetails, fetchOneProgram])
     
          
         
@@ -109,7 +110,7 @@ export function App() {
             const exercise = {
                 exercises: {
                     name: name,
-                    image: "Temp Image",
+                    image: "IMAGE LINK",
                     info: info
                     }
                 }
@@ -143,19 +144,21 @@ export function App() {
             setOneProgram(data)
         }
 
-        const [oneProgramByName, setOneProgramByName] = useState([]);
+        // const [oneProgramByName, setOneProgramByName] = useState([]);
 
-        async function getProgramByName(name) {
-            let program = `http://localhost:4001/programs/name/${name}/`
-            const res = await fetch(program)
-            const data = await res.json()
-            setOneProgramByName(data)
+        // async function getProgramByName(name) {
+        //     let program = `http://localhost:4001/programs/name/${name}/`
+        //     const res = await fetch(program)
+        //     const data = await res.json()
+        //     setOneProgramByName(data)
 
-        }
+        // }
 
 
     return (
         <>
+
+            <Navbar />
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/users' element={<Users />} />

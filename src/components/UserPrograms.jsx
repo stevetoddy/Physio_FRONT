@@ -1,4 +1,5 @@
 import React, { useState, useContext, createContext, useEffect } from 'react'
+
 import { useParams } from 'react-router-dom'
 import Card from './Card'
 
@@ -10,6 +11,7 @@ const UserPrograms = () => {
   const [completion, setCompletion] = useState([0, 0, 0]);
   const { id } = useParams();
   const [oneProgram, setOneProgram] = useState({ loading: true });
+
 
   const updateMetrics = (index, newPain, newDifficulty, newCompletion) => {
     setPain(prevPain => {
@@ -28,6 +30,7 @@ const UserPrograms = () => {
       return newCompletionArray;
     });
   };
+
 
   const handleSubmit = () => {
     const totalPain = pain.reduce((a, b) => a + b, 0);
@@ -81,6 +84,7 @@ const UserPrograms = () => {
         </>)}
     </MetricsContext.Provider>
   )
+
 }
 
 export default UserPrograms
