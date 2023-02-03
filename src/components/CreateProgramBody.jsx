@@ -25,9 +25,10 @@ const CreateProgramBody = ({ addExercise, programName, fetchOneProgram }) => {
             <div className="create-name-container">
             <form className="create-name-form" onSubmit={submitHandler}>
                 <h3>{programName}</h3>
-               
+                <label style={{margin: "20px 0 0"}} htmlFor="">Exercise Name</label>
+
                 <input
-                    // style={{margin: "0 2rem"}}
+                    style={{margin: "0 2rem"}}
                     type="text"
                     className="input" 
                     id="exampleFormControlInput1"
@@ -37,6 +38,8 @@ const CreateProgramBody = ({ addExercise, programName, fetchOneProgram }) => {
                     onChange={(event) => setExerciseName(event.target.value)}
                 />
                 <br />
+                <label style={{margin: "20px 0 0"}} htmlFor="">Exercise Details</label>
+
                 <input
                     style={{margin: "0 2rem 2rem"}}
                     type="text"
@@ -49,7 +52,6 @@ const CreateProgramBody = ({ addExercise, programName, fetchOneProgram }) => {
                 />
                     <button style={{margin: "0 2rem 2rem"}} className="login-btn" type="submit" name="submit">Save</button>
                     
-                    {/* <input type="submit" name="submit" className="btn btn-primary" /> */}
 
             </form>
             </div>

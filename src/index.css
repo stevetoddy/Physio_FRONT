@@ -79,7 +79,7 @@ button:focus-visible {
 
 
  body{
-  background-image: url('./components/Images/comet.jpeg');
+  /* background-image: url('./components/Images/comet.jpeg'); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

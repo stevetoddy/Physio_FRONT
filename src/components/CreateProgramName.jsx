@@ -1,5 +1,6 @@
 import { React } from 'react'
 import './CreateProgramName.css'
+import Navbar from './Navbar'
 
 
 
@@ -12,7 +13,8 @@ const CreateProgramName = ({ newProgramName, programName, setProgramName }) => {
 
     return (
         
-        
+        <>
+        <Navbar />
         <div className="create-name-container">
 
         
@@ -30,10 +32,11 @@ const CreateProgramName = ({ newProgramName, programName, setProgramName }) => {
                     onChange={(event) => setProgramName(event.target.value)}
               />
                 <br />
-                    <button className="name-save-button" type="submit" name="submit">Save</button>
+                    <button style={{margin:'2rem 0'}} className="name-save-button" type="submit" name="submit">Save</button>
                     {/* <input type="submit" name="submit" className="btn btn-primary" /> */}
             </form>
         </div>
+        </>
     )
 }
 

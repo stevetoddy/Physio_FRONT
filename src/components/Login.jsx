@@ -31,10 +31,14 @@ const Login = ({ loginDetails }) => {
                     <div className="Auth-form-content">
                         <h3 className="Auth-form-title">Login</h3>
                         <div className="inputs">
-                        
+                            
+                            <label style={{margin: "20px 0 0"}} htmlFor="">Email</label>
+
                             <input className="email" type="text" name="email" placeholder="Enter email" value={email}
                             onChange={changeHandler}/><br />
-                        
+
+                            <label style={{margin: "20px 0 0"}} htmlFor="">Password</label>
+
                             <input className="password" type="password" name="password" placeholder="Enter password" value={password}
                             onChange={changeHandler}/><br />
                         
