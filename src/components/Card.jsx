@@ -11,7 +11,7 @@ const Card = ({ image, exerciseName, info, pain, difficulty, completion, updateM
                     <p className="card-text">{ info }</p>
                     <div>
                         <p>Pain: 
-                            <select value={pain} onChange={(e) => updateMetrics(index, e.target.value, difficulty, completion)}>
+                            <select value={pain} onChange={(e) => updateMetrics(index, parseInt(e.target.value,10), difficulty, completion)}>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -19,7 +19,7 @@ const Card = ({ image, exerciseName, info, pain, difficulty, completion, updateM
                             </select>
                         </p>
                         <p>Difficulty:
-                            <select value={difficulty} onChange={(e) => updateMetrics(index, pain, e.target.value, completion)}>
+                            <select value={difficulty} onChange={(e) => updateMetrics(index, pain, parseInt(e.target.value), completion)}>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -30,7 +30,7 @@ const Card = ({ image, exerciseName, info, pain, difficulty, completion, updateM
                             <input 
                             type="checkbox" 
                             checked={completion === 1} 
-                            onChange={(e) => updateMetrics(index, pain, difficulty, e.target.checked ? 1 : 0)} 
+                            onChange={(e) => updateMetrics(index, pain, difficulty, parseInt(e.target.checked ? 1 : 0, 10))} 
                             />
                         </p>
                 </div>

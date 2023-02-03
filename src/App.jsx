@@ -28,7 +28,7 @@ export function App() {
             password: password
         }
 
-        const userLogin = await fetch('http://localhost:4001/auth/login', {
+        const userLogin = await fetch('http://localhost:4002/auth/login', {
             method: 'POST',
             headers: {
                 Accept: "application/json",
@@ -61,7 +61,7 @@ export function App() {
        
     useEffect(() => {
     async function fetchUserPrograms() {
-        let userId = `http://localhost:4001/programs/users/${id.substring(1, 25)}/`
+        let userId = `http://localhost:4002/programs/users/${id.substring(1, 25)}/`
         const res = await fetch(userId)
         const data = await res.json()
         setUserPrograms(data)
@@ -82,7 +82,7 @@ export function App() {
                 userID: userID
             }
     
-            const newName = await fetch('http://localhost:4001/programs/', {
+            const newName = await fetch('http://localhost:4002/programs/', {
                 method: 'POST',
                 headers: {
                     Accept: "application/json",
@@ -113,7 +113,7 @@ export function App() {
                     }
                 }
 
-            const newExercise = await fetch(`http://localhost:4001/programs/exercise/${programId.substring(1, 25)}`, {
+            const newExercise = await fetch(`http://localhost:4002/programs/exercise/${programId.substring(1, 25)}`, {
                 method: 'PUT',
                 headers: {
                     Accept: "application/json",
@@ -134,7 +134,7 @@ export function App() {
         const [oneProgram, setOneProgram] = useState([]);
 
         async function fetchOneProgram() {
-            let userId = `http://localhost:4001/programs/${sessionStorage.ProgramId.substring(1, 25)}/`
+            let userId = `http://localhost:4002/programs/${sessionStorage.ProgramId.substring(1, 25)}/`
             const res = await fetch(userId)
             const data = await res.json()
             setOneProgram(data)

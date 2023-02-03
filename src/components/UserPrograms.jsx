@@ -33,21 +33,31 @@ const UserPrograms = () => {
   };
 
 
-  const handleSubmit = () => {
+  const handleSubmit = (x) => {
     const totalPain = pain.reduce((a, b) => a + b, 0);
     const totalDifficulty = difficulty.reduce((a, b) => a + b, 0);
     const totalCompletion = completion.reduce((a, b) => a + b, 0);
     const metrics = {
-      pain: totalPain,
-      difficulty: totalDifficulty,
-      completion: totalCompletion
-    };
-    console.log(metrics);
+        date: new Date().toLocaleDateString() + "",
+        pain: totalPain / x,
+        difficulty: totalDifficulty / x,
+        completion: totalCompletion / x
+    }
+    fetch(`http://localhost:4002/metrics/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(metrics)
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
   };
 
   useEffect(() => {
     async function fetchOneProgram() {
-      const res = await fetch(`http://localhost:4001/programs/${id}/`);
+      const res = await fetch(`http://localhost:4002/programs/${id}/`);
       const data = await res.json();
       setOneProgram(data);
     }
@@ -81,7 +91,7 @@ const UserPrograms = () => {
                 />
               ))}
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(oneProgram.exercises.length)}>
               <input type="submit" value="Submit" />
             </form>
           </div>
