@@ -18,7 +18,7 @@ const Progress = ({ id }) => {
 
     useEffect(() => {
     async function fetchUserPrograms() {
-        let userId = 'https://physioappapi-production.up.railway.app/programs/users/${id.substring(1, 25)}/'
+        let userId = `https://physioappapi-production.up.railway.app/programs/users/${id.substring(1, 25)}/`
         const res = await fetch(userId)
         const data = await res.json()
         setUserPrograms(data)
