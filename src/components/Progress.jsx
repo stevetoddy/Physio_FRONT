@@ -6,7 +6,7 @@ const styles = {
     background: 'lightgrey',
     padding: '0.5rem',
     width: '525px',
-    margin: '0.5rem 1rem',
+    margin: '2rem 1rem 0',
     borderRadius: '0.5rem',
     color: "black",
 }

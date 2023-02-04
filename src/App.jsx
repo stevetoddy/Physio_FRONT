@@ -101,7 +101,7 @@ export function App() {
         setUserPrograms(data)
     }
     fetchUserPrograms()
-    }, [id, newProgramName])
+    }, [id, programId])
 
 
     // PUT New Exercises
