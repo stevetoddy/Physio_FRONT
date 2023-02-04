@@ -11,20 +11,20 @@ const styles = {
     color: "black",
 }
 
-const Progress = ({ id }) => {
+const Progress = ({ id, userPrograms }) => {
 
-  const [userPrograms, setUserPrograms] = useState([])
+//   const [userPrograms, setUserPrograms] = useState([])
        
 
-    useEffect(() => {
-    async function fetchUserPrograms() {
-        let userId = `https://physioappapi-production.up.railway.app/programs/users/${id.substring(1, 25)}/`
-        const res = await fetch(userId)
-        const data = await res.json()
-        setUserPrograms(data)
-    }
-    fetchUserPrograms()
-    }, [])
+//     useEffect(() => {
+//     async function fetchUserPrograms() {
+//         let userId = `https://physioappapi-production.up.railway.app/programs/users/${id.substring(1, 25)}`
+//         const res = await fetch(userId)
+//         const data = await res.json()
+//         setUserPrograms(data)
+//     }
+//     fetchUserPrograms()
+//     }, [])
 
     return (
         <>

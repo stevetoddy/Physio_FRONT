@@ -153,8 +153,8 @@ export function App() {
                 <Route path='/programs' element={<Programs userPrograms={userPrograms} />} />
                 <Route path='/programs/:id' element={<UserPrograms />} />
                 <Route path='/badDetails' element={<BadLogin />} />
-                <Route path='/chart' element={<Progress id={id}/>} />
-                <Route path='/progress' element={<Progress userPrograms={userPrograms} />} />
+                <Route path='/chart' element={<Progress id={id} userPrograms={userPrograms}/>} />
+                <Route path='/progress' element={<Progress userPrograms={userPrograms} id={id} />} />
                 <Route path='/createname' element={<CreateProgramName newProgramName={newProgramName} programName={programName} setProgramName={setProgramName} fetchOneProgram={fetchOneProgram} />} />
                 <Route path='/createbody' element={<CreateProgramBody addExercise={addExercise} programName={programName} oneProgram={oneProgram} fetchOneProgram={fetchOneProgram} />} />
                 <Route path='/updatedprogram' element={<UpdatedProgram programName={programName} oneProgram={oneProgram}/>} />
