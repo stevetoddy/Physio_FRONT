@@ -1,9 +1,11 @@
 import React from 'react'
+import './Card.css'
 
 const Card = ({ image, exerciseName, info, pain, difficulty, completion, updateMetrics, index }) => {
 
     return (
-        <>  
+        <>
+       
             <div className="card" style={{textAlign:"center", width:"400px", padding:"2rem", marginLeft:"30vw"}}>
             <img src={ image } className="card-img-top" alt="Exercise Image" />
                 <div className="card-body">
@@ -50,7 +52,8 @@ const Card = ({ image, exerciseName, info, pain, difficulty, completion, updateM
                 </div>
             </div>
         </div>
-        <br />
+                <br />
+                
         </>
     )
 }

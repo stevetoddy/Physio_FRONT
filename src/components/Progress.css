@@ -1,0 +1,11 @@
+.progress-container{
+        display: flex;
+        justify-content: center;  
+        top: 50%;
+        margin: 7rem;
+        
+
+}
+.heading{
+    color: #DBCCB6;
+}

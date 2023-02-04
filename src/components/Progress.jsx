@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Chart from './Chart'
 import Navbar from './Navbar'
+import './Progress.css'
 
-const styles = {
-    background: 'lightgrey',
-    padding: '0.5rem',
-    width: '525px',
-    margin: '0.5rem 1rem',
-    borderRadius: '0.5rem',
-    color: "black",
-}
+// const styles = {
+//     background: 'lightgrey',
+//     padding: '0.5rem',
+//     width: '525px',
+//     margin: '0.5rem 1rem',
+//     borderRadius: '0.5rem',
+//     color: "black",
+// }
 
 const Progress = ({ id }) => {
 
@@ -29,7 +30,11 @@ const Progress = ({ id }) => {
     return (
         <>
           <Navbar />
-          <h2 style={{margin: '1rem 1rem 2rem'}}>Progress</h2>
+         
+        <div className="progress-container">
+          <h2 className="heading">Progress</h2>
+        </div>
+        
           <div>
             {userPrograms.map((program, index) => {
               if (program.metrics.length === 0) {
@@ -44,6 +49,7 @@ const Progress = ({ id }) => {
               )
             })}
           </div>
+         
         </>
       )
 }
