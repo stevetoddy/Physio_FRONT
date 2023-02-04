@@ -48,7 +48,7 @@ const UserPrograms = () => {
         complete: totalCompletion / x
     }
     console.log(metrics)
-    fetch(`http://localhost:4001/programs/metrics/${id}/`, {
+    fetch(`http://physioappapi-production.up.railway.app/programs/metrics/${id}/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -57,13 +57,13 @@ const UserPrograms = () => {
     })
       .then(res => res.json())
       .catch(err => console.err)
-      nav('/chart')
+      nav('/')
   }
   
 
   useEffect(() => {
     async function fetchOneProgram() {
-        const res = await fetch(`http://localhost:4001/programs/${id}/`)
+        const res = await fetch(`http://physioappapi-production.up.railway.app/programs/${id}/`)
         const data = await res.json()
         setOneProgram(data)
         setPain(Array(data.exercises.length).fill(0))

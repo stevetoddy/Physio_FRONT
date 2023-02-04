@@ -18,13 +18,13 @@ const Progress = ({ id }) => {
 
     useEffect(() => {
     async function fetchUserPrograms() {
-        let userId = `http://localhost:4001/programs/users/${id.substring(1, 25)}/`
+        let userId = `http://physioappapi-production.up.railway.app/programs/users/${id.substring(1, 25)}/`
         const res = await fetch(userId)
         const data = await res.json()
         setUserPrograms(data)
     }
     fetchUserPrograms()
-    }, [userPrograms])
+    }, [])
 
     return (
         <>

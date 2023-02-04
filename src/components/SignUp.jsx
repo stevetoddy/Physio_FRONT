@@ -13,7 +13,7 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const res = await fetch('http://localhost:4001/auth/signup', {
+    const res = await fetch('http://physioappapi-production.up.railway.app/auth/signup', {
       method: "POST",
       body: JSON.stringify(formData),
       headers: { "Content-Type": "application/json"},
